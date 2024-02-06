@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { storage } from '@lib/utils/storage/storage.utils';
 import { BehaviorSubject } from 'rxjs';
-import { Auth } from '@auth0/auth0-angular';
 
 @Injectable({
     providedIn: 'root',
@@ -14,7 +13,6 @@ export class AuthService {
     }
 
     login(): void {
-        this.Auth.loginWithRedirect();
         storage.setItem('appSession', { user: 'some-user-id', token: 'abc' });
         this.isAuthenticated$.next(true);
     }
